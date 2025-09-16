@@ -60,7 +60,12 @@ function adicionarProduto() {
     const preco = parseFloat(document.getElementById('preco').value);
 
     if (!codbarras || !nome || isNaN(quantidade) || isNaN(preco)) {
-        alert("É necessário preencher todos os campos corretamente!")
+         Swal.fire({
+            title: 'Não há um produto para adicionar.',
+            text: 'Por favor, preecha todos os campos.',
+            icon: 'warning', //success, error, info, question
+            confirmButtonText: 'OK'
+        })
         return;
     }
     let jaExiste = false;
@@ -72,7 +77,12 @@ function adicionarProduto() {
     });
 
     if(jaExiste) {
-        alert("Produto com esse código de barras já cadastrado!");
+         Swal.fire({
+            title: 'Produto já cadastrado.',
+            text: 'Já existe um produto com este código de barras.',
+            icon: 'warning', //success, error, info, question
+            confirmButtonText: 'OK'
+        })
         return;
     }
 
@@ -97,7 +107,12 @@ function adicionarProduto() {
 
 function removerUltimo() {
     if(produtos.length === 0) {
-        alert("Nenhum produto para ser removido!")
+        Swal.fire({
+            title: 'Não existem produtos na lista',
+            text: 'Não é possível remover um produto de uma lista vazia',
+            icon: 'warning', //success, error, info, question
+            confirmButtonText: 'Fechar'
+        })
         return;
     }
     produtos.pop();
@@ -110,13 +125,17 @@ function removerUltimo() {
 
 function removerPrimeiro() {
     if(produtos.length === 0) {
-        alert("Nenhum produto para ser removido!")
-        return;
-    }
-
-    produtos.shift();
-    salvaProdutosLocalStorage();
-    listarProdutos();
+        Swal.fire({
+            title: 'Não existem produtos na lista',
+            text: 'Não é possível remover um produto de uma lista vazia',
+            icon: 'warning', //success, error, info, question
+            confirmButtonText: 'Fechar'
+        })
+    } else {
+        produtos.pop()
+        salvaProdutosLocalStorage()
+        listarProdutos
+    } 
     // Dica: Use o método shift() para remover o primeiro item do array 'produtos'.
     // Lembre-se de chamar salvaProdutosLocalStorage() e listarProdutos() depois.
     // Verifique se a lista não está vazia antes de tentar remover.
@@ -166,7 +185,13 @@ function filtrarPorPreco() {
     }
 
     const nome = filtrados.map(p => p.nome).join(", ");
-    alert("Produtos acima de R$ 100: " + nome);
+        Swal.fire({
+            title: 'Produtos acima de R$ 100:',
+            text: 'Produtos acima de R$ 100: ' + nome, 
+            icon: 'warning', //success, error, info, question
+            confirmButtonText: 'Fechar'
+        })
+
     // Dica: Use o método filter() para criar um novo array com produtos
     // cujo preço seja maior que 100.
     // Em seguida, use map() para extrair apenas os nomes dos produtos filtrados.
