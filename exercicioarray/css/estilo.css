@@ -1,0 +1,127 @@
+/* =============================
+   Estilos Gerais
+   ============================= */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 24px;
+    color: #333;
+}
+
+/* =============================
+   Cabeçalho
+   ============================= */
+h1 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 24px;
+}
+
+/* =============================
+   Formulário
+   ============================= */
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 24px;
+    margin-right: 24px;
+    background-color: #fff;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+label {
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 90%;
+    font-size: 14px;
+}
+
+/* =============================
+   Botões
+   ============================= */
+button {
+    padding: 8px 16px;
+    background-color: #E37400;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #552d03;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+
+/* =============================
+   Tabela de Produtos
+   ============================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+thead {
+    background-color: #1976d2;
+    color: white;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 16px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.ordenavel {
+  cursor: pointer;
+}
+.direita {
+    text-align: right;
+}
+.total{
+    background:#4f9fee;
+    color:white;
+}
+/* =============================
+   Responsividade
+   ============================= */
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+    }
+    input[type="text"],
+    input[type="number"] {
+        width: 90%;
+    }
+    button {
+        width: 90%;
+    }
+}
